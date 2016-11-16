@@ -1,0 +1,60 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,egret_icon_png,description_json,questiongrey_png,questionyellow_png,markgrey_png,markyellow_png,person1_png,person2_png,background_jpg",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "bg_jpg",
+			"type": "image",
+			"url": "assets/bg.jpg"
+		},
+		{
+			"name": "egret_icon_png",
+			"type": "image",
+			"url": "assets/egret_icon.png"
+		},
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "questiongrey_png",
+			"type": "image",
+			"url": "assets/questiongrey.png"
+		},
+		{
+			"name": "questionyellow_png",
+			"type": "image",
+			"url": "assets/questionyellow.png"
+		},
+		{
+			"name": "markgrey_png",
+			"type": "image",
+			"url": "assets/markgrey.png"
+		},
+		{
+			"name": "markyellow_png",
+			"type": "image",
+			"url": "assets/markyellow.png"
+		},
+		{
+			"name": "person1_png",
+			"type": "image",
+			"url": "assets/person1.png"
+		},
+		{
+			"name": "person2_png",
+			"type": "image",
+			"url": "assets/person2.png"
+		},
+		{
+			"name": "background_jpg",
+			"type": "image",
+			"url": "assets/background.jpg"
+		}
+	]
+}
