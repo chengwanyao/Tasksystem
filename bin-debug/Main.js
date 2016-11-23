@@ -59,16 +59,6 @@ var Main = (function (_super) {
      * preload资源组加载完成
      * Preload resource group is loaded
      */
-    p.onResourceLoadComplete = function (event) {
-        if (event.groupName == "preload") {
-            this.stage.removeChild(this.loadingView);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-            RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
-            this.createGameScene();
-        }
-    };
     /**
      * 资源组加载出错
      *  The resource group loading failed
@@ -86,6 +76,16 @@ var Main = (function (_super) {
         //忽略加载失败的项目
         //Ignore the loading failed projects
         this.onResourceLoadComplete(event);
+    };
+    p.onResourceLoadComplete = function (event) {
+        if (event.groupName == "preload") {
+            this.stage.removeChild(this.loadingView);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+            RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
+            this.createGameScene();
+        }
     };
     /**
      * preload资源组加载进度
@@ -111,12 +111,13 @@ var Main = (function (_super) {
         var taskService = new TaskService();
         var taskPanel = new TaskPanel(this, taskService);
         var npctalkpanel = new NPCTalkPanel(this, taskService);
-        var npc_0 = new NPC("npc_0", "NPC_1", taskService, npctalkpanel);
+        var mockkillmonsterbutton = new KillMonsterPanel(this, taskService);
+        var npc_0 = new NPC("npc_0", "NPC_1", taskService, npctalkpanel, mockkillmonsterbutton);
         npc_0.setNpc(200, 500, 0x800080);
         npc_0.drawNpc();
         this.addChild(npc_0.npcStage);
         npc_0.getTask();
-        var npc_1 = new NPC("npc_1", "NPC_2", taskService, npctalkpanel);
+        var npc_1 = new NPC("npc_1", "NPC_2", taskService, npctalkpanel, mockkillmonsterbutton);
         npc_1.setNpc(400, 500, 0x0000FF);
         npc_1.drawNpc();
         this.addChild(npc_1.npcStage);

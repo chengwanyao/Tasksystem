@@ -16,20 +16,13 @@ class NPCTalkPanel {
 	private panelHeight = 300;
 
 	private taskNameTextField:egret.TextField;
+	private taskNameTextFieldColor = 0x800000;//任务名
 	private taskNameTextFieldText = "";
 	private taskNameTextFieldX = 40;
 	private taskNameTextFieldY = 50;
 	private taskNameTextFieldWidth = 200;
-	private taskNameTextFieldColor = 0x800000;//任务名
-
-
-	private taskDescTextField:egret.TextField;
-	private taskDescTextFieldText = "";
-	private taskDescTextFieldX = 10;
-	private taskDescTextFieldY = 100;
-	private taskDescTextFieldWidth = 180;
-	private taskDescTextFieldColor = 0x800080;
 	
+
 	private button:egret.DisplayObjectContainer;
 	private buttonBack:egret.Shape;
 	private buttonColor = 0xFFB6C1;
@@ -37,6 +30,14 @@ class NPCTalkPanel {
 	private buttonY = 200;
 	private buttonWidth = 130;
 	private buttonHeight = 70;
+
+
+private taskDescTextField:egret.TextField;
+	private taskDescTextFieldText = "";
+	private taskDescTextFieldX = 10;
+	private taskDescTextFieldY = 100;
+	private taskDescTextFieldWidth = 180;
+	private taskDescTextFieldColor = 0x800080;
 
 
 	private buttonTextField:egret.TextField;
@@ -78,13 +79,6 @@ class NPCTalkPanel {
 
 	}
 
-	private drawBackGround() {
-		this.backGround.graphics.beginFill(this.backColor,1);
-		this.backGround.graphics.drawRect(0,0,this.panelWidth,this.panelHeight);
-		this.backGround.graphics.endFill();
-
-	}
-
 	private drawButtonBack() {
 		this.buttonBack.graphics.beginFill(this.buttonColor,1);
 		this.buttonBack.graphics.drawRect(this.buttonX,this.buttonY,this.buttonWidth,this.buttonHeight);
@@ -92,6 +86,11 @@ class NPCTalkPanel {
 
 	}
 
+private drawBackGround() {
+		this.backGround.graphics.beginFill(this.backColor,1);
+		this.backGround.graphics.drawRect(0,0,this.panelWidth,this.panelHeight);
+		this.backGround.graphics.endFill();
+	}
 	private setButtonText() {
 		this.buttonTextField.text = this.buttonTextFieldText;
 		this.buttonTextField.x = this.buttonTextFieldX;

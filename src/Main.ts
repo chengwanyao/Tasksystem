@@ -34,7 +34,6 @@ class Main extends egret.DisplayObjectContainer {
      * Process interface loading
      */
     private loadingView: LoadingUI;
-
     public constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
@@ -69,16 +68,7 @@ class Main extends egret.DisplayObjectContainer {
      * preload资源组加载完成
      * Preload resource group is loaded
      */
-    private onResourceLoadComplete(event: RES.ResourceEvent): void {
-        if (event.groupName == "preload") {
-            this.stage.removeChild(this.loadingView);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
-            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-            RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
-            this.createGameScene();
-        }
-    }
+    
 
     /**
      * 资源组加载出错
@@ -99,6 +89,18 @@ class Main extends egret.DisplayObjectContainer {
         //Ignore the loading failed projects
         this.onResourceLoadComplete(event);
     }
+
+private onResourceLoadComplete(event: RES.ResourceEvent): void {
+        if (event.groupName == "preload") {
+            this.stage.removeChild(this.loadingView);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
+            RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
+            RES.removeEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
+            this.createGameScene();
+        }
+    }
+
 
     /**
      * preload资源组加载进度
@@ -130,8 +132,9 @@ class Main extends egret.DisplayObjectContainer {
 
         var taskPanel = new TaskPanel(this, taskService);
         var npctalkpanel=new NPCTalkPanel(this,taskService);
+        var mockkillmonsterbutton=new KillMonsterPanel(this,taskService);
 
-        var npc_0 = new NPC("npc_0", "NPC_1", taskService,npctalkpanel);
+        var npc_0 = new NPC("npc_0", "NPC_1", taskService,npctalkpanel,mockkillmonsterbutton);
         npc_0.setNpc(200, 500, 0x800080);
         npc_0.drawNpc();
         this.addChild(npc_0.npcStage);
@@ -139,7 +142,7 @@ class Main extends egret.DisplayObjectContainer {
         npc_0.getTask();
 
 
-        var npc_1 = new NPC("npc_1", "NPC_2", taskService,npctalkpanel);
+        var npc_1 = new NPC("npc_1", "NPC_2", taskService,npctalkpanel,mockkillmonsterbutton);
         npc_1.setNpc(400, 500, 0x0000FF);
         npc_1.drawNpc();
         this.addChild(npc_1.npcStage);

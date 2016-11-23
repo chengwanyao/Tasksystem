@@ -1,19 +1,18 @@
 class TaskNoneState implements State {
 
     private npc: NPC;
-
     constructor(npc: NPC) {
         this.npc = npc;
 
     }
 
+    onExit() {
+        console.log("Exit Task None State");
+    }
+
     onEnter() {
         console.log("Enter Task None State");
 
-    }
-
-    onExit() {
-        console.log("Exit Task None State");
     }
 
 }

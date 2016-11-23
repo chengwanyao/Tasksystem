@@ -7,12 +7,12 @@ var emojiimage = {
     UNACCEPTABLEimage: "markgrey_png"
 };
 var NPC = (function () {
-    function NPC(npcId, npcName, taskService, NPCtalkpanel) {
+    function NPC(npcId, npcName, taskService, NPCtalkpanel, mockkillmonsterpanel) {
+        this.npcStageWidth = 64;
+        this.npcStageHeight = 128;
         this.tileSize = 64;
         this.emojiX = 0;
         this.emojiY = 64;
-        this.npcStageWidth = 64;
-        this.npcStageHeight = 128;
         this.npcStage = new egret.DisplayObjectContainer();
         this.npcStageShape = new egret.Shape();
         this.emoji = new egret.Bitmap();
@@ -105,7 +105,7 @@ var NPC = (function () {
     p.onNpcClick = function (e, task, npcid) {
         if (task === void 0) { task = this.task; }
         if (npcid === void 0) { npcid = this.npcId; }
-        this.taskService.checkTaskRules(task, npcid, this.NPCtalkpanel);
+        this.taskService.checkStatus(task, npcid, this.NPCtalkpanel);
     };
     p.onChange = function (task) {
         this.task = task;

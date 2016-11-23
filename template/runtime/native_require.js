@@ -18,6 +18,8 @@ var game_file_list = [
 	"bin-debug/Task.js",
 	"bin-debug/TaskPanel.js",
 	"bin-debug/TaskService.js",
+	"bin-debug/Condition.js",
+	"bin-debug/KillMonsterPanel.js",
 	//----auto game_file_list end----
 ];
 

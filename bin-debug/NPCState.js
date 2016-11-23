@@ -3,11 +3,11 @@ var TaskNoneState = (function () {
         this.npc = npc;
     }
     var d = __define,c=TaskNoneState,p=c.prototype;
-    p.onEnter = function () {
-        console.log("Enter Task None State");
-    };
     p.onExit = function () {
         console.log("Exit Task None State");
+    };
+    p.onEnter = function () {
+        console.log("Enter Task None State");
     };
     return TaskNoneState;
 }());

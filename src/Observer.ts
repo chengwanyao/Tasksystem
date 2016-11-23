@@ -1,5 +1,5 @@
 class Observer{
-    onChange(task:Task){
-        
+    onChange(task:Task){    
     }
+    
 }

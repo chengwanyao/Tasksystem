@@ -5,21 +5,21 @@ var NPCTalkPanel = (function () {
         this.panelY = 100;
         this.panelWidth = 200;
         this.panelHeight = 300;
+        this.taskNameTextFieldColor = 0x800000; //任务名
         this.taskNameTextFieldText = "";
         this.taskNameTextFieldX = 40;
         this.taskNameTextFieldY = 50;
         this.taskNameTextFieldWidth = 200;
-        this.taskNameTextFieldColor = 0x800000; //任务名
-        this.taskDescTextFieldText = "";
-        this.taskDescTextFieldX = 10;
-        this.taskDescTextFieldY = 100;
-        this.taskDescTextFieldWidth = 180;
-        this.taskDescTextFieldColor = 0x800080;
         this.buttonColor = 0xFFB6C1;
         this.buttonX = 30;
         this.buttonY = 200;
         this.buttonWidth = 130;
         this.buttonHeight = 70;
+        this.taskDescTextFieldText = "";
+        this.taskDescTextFieldX = 10;
+        this.taskDescTextFieldY = 100;
+        this.taskDescTextFieldWidth = 180;
+        this.taskDescTextFieldColor = 0x800080;
         this.buttonTextFieldText = "确认";
         this.buttonTextFieldX = this.buttonX + 15;
         this.buttonTextFieldY = this.buttonY + 12;
@@ -51,15 +51,15 @@ var NPCTalkPanel = (function () {
         this.taskDescTextField.bold = false;
         this.taskDescTextField.textColor = this.taskDescTextFieldColor;
     };
-    p.drawBackGround = function () {
-        this.backGround.graphics.beginFill(this.backColor, 1);
-        this.backGround.graphics.drawRect(0, 0, this.panelWidth, this.panelHeight);
-        this.backGround.graphics.endFill();
-    };
     p.drawButtonBack = function () {
         this.buttonBack.graphics.beginFill(this.buttonColor, 1);
         this.buttonBack.graphics.drawRect(this.buttonX, this.buttonY, this.buttonWidth, this.buttonHeight);
         this.buttonBack.graphics.endFill();
+    };
+    p.drawBackGround = function () {
+        this.backGround.graphics.beginFill(this.backColor, 1);
+        this.backGround.graphics.drawRect(0, 0, this.panelWidth, this.panelHeight);
+        this.backGround.graphics.endFill();
     };
     p.setButtonText = function () {
         this.buttonTextField.text = this.buttonTextFieldText;
